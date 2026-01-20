@@ -320,7 +320,7 @@ abstract class Schema extends BaseObject
      */
     public function createQueryBuilder()
     {
-        return Yii::createObject(QueryBuilder::className(), [$this->db]);
+        return Yii::createObject(QueryBuilder::class, [$this->db]);
     }
 
     /**
@@ -335,7 +335,7 @@ abstract class Schema extends BaseObject
      */
     public function createColumnSchemaBuilder($type, $length = null)
     {
-        return Yii::createObject(ColumnSchemaBuilder::className(), [$type, $length]);
+        return Yii::createObject(ColumnSchemaBuilder::class, [$type, $length]);
     }
 
     /**

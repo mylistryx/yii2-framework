@@ -731,13 +731,13 @@ class PhpManager extends BaseManager
         $rules = $this->loadFromFile($this->ruleFile);
 
         foreach ($items as $name => $item) {
-            $class = $item['type'] == Item::TYPE_PERMISSION ? Permission::className() : Role::className();
+            $class = $item['type'] == Item::TYPE_PERMISSION ? Permission::class : Role::class;
 
             $this->items[$name] = new $class([
                 'name' => $name,
-                'description' => isset($item['description']) ? $item['description'] : null,
-                'ruleName' => isset($item['ruleName']) ? $item['ruleName'] : null,
-                'data' => isset($item['data']) ? $item['data'] : null,
+                'description' => $item['description'] ?? null,
+                'ruleName' => $item['ruleName'] ?? null,
+                'data' => $item['data'] ?? null,
                 'createdAt' => $itemsMtime,
                 'updatedAt' => $itemsMtime,
             ]);

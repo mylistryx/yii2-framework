@@ -1,9 +1,10 @@
 {
-    "name": "yiisoft/yii2",
+    "name": "mylistryx/yii2-framework",
     "description": "Yii PHP Framework Version 2",
     "keywords": [
         "yii2",
-        "framework"
+        "framework",
+		"fork"
     ],
     "homepage": "https://www.yiiframework.com/",
     "type": "library",
@@ -53,7 +54,13 @@
             "email": "info@dynasource.eu",
             "homepage": "http://dynasource.eu",
             "role": "Core framework development"
-        }
+        },
+		{
+			"name": "Sergey Zhukovskiy",
+			"email": "mylistryx@gmail.com",
+			"homepage": "https://net23.ru",
+			"role": "Fork developer"
+		}
     ],
     "support": {
         "issues": "https://github.com/yiisoft/yii2/issues?state=open",
@@ -63,17 +70,22 @@
         "source": "https://github.com/yiisoft/yii2"
     },
     "require": {
-        "php": ">=7.4.0",
-        "ext-mbstring": "*",
+        "php": ">=8.5.0",
+        "ext-bcmath": "*",
         "ext-ctype": "*",
-        "lib-pcre": "*",
-        "yiisoft/yii2-composer": "~2.0.4",
-        "ezyang/htmlpurifier": "^4.17",
-        "cebe/markdown": "~1.0.0 | ~1.1.0 | ~1.2.0",
-        "bower-asset/jquery": "3.7.*@stable | 3.6.*@stable | 3.5.*@stable | 3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
-        "bower-asset/inputmask": "^5.0.8 ",
-        "bower-asset/punycode": "^2.2",
-        "bower-asset/yii2-pjax": "~2.0.1"
+        "ext-curl": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pcre": "*",
+        "bower-asset/inputmask": "~5.0.9",
+        "bower-asset/jquery": "~4.0.0",
+        "bower-asset/punycode": "~v2.3.1",
+        "bower-asset/yii2-pjax": "~2.0.8",
+        "cebe/markdown": "~1.2.1",
+        "ezyang/htmlpurifier": "~v4.19.0",
+        "yiisoft/yii2-composer": "~2.0.11"
     },
     "autoload": {
         "psr-4": {"yii\\": ""}
@@ -83,7 +95,23 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-master": "dev"
         }
-    }
+    },
+	"repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+	"config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer" : true
+        },
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+	"minimum-stability": "stable"
 }

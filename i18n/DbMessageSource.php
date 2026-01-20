@@ -94,9 +94,9 @@ class DbMessageSource extends MessageSource
     public function init()
     {
         parent::init();
-        $this->db = Instance::ensure($this->db, Connection::className());
+        $this->db = Instance::ensure($this->db, Connection::class);
         if ($this->enableCaching) {
-            $this->cache = Instance::ensure($this->cache, 'yii\caching\CacheInterface');
+            $this->cache = Instance::ensure($this->cache, CacheInterface::class);
         }
     }
 
@@ -139,7 +139,7 @@ class DbMessageSource extends MessageSource
      */
     protected function loadMessagesFromDb($category, $language)
     {
-        $mainQuery = (new Query())->select(['message' => 't1.message', 'translation' => 't2.translation'])
+        $mainQuery = new Query()->select(['message' => 't1.message', 'translation' => 't2.translation'])
             ->from(['t1' => $this->sourceMessageTable, 't2' => $this->messageTable])
             ->where([
                 't1.id' => new Expression('[[t2.id]]'),

@@ -567,7 +567,7 @@ Upgrade from Yii 2.0.34
   public function rules()
   {
       return [
-          ['attribute', 'each', 'rule' => ['exist', 'targetClass' => static::className(), 'targetAttribute' => 'id']],
+          ['attribute', 'each', 'rule' => ['exist', 'targetClass' => static::class, 'targetAttribute' => 'id']],
       ];
   }
   ```

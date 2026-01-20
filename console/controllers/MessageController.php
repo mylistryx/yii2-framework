@@ -323,9 +323,9 @@ EOD;
             }
         } elseif ($this->config['format'] === 'db') {
             /** @var Connection $db */
-            $db = Instance::ensure($this->config['db'], Connection::className());
-            $sourceMessageTable = isset($this->config['sourceMessageTable']) ? $this->config['sourceMessageTable'] : '{{%source_message}}';
-            $messageTable = isset($this->config['messageTable']) ? $this->config['messageTable'] : '{{%message}}';
+            $db = Instance::ensure($this->config['db'], Connection::class);
+            $sourceMessageTable = $this->config['sourceMessageTable'] ?? '{{%source_message}}';
+            $messageTable = $this->config['messageTable'] ?? '{{%message}}';
             $this->saveMessagesToDb(
                 $messages,
                 $db,
